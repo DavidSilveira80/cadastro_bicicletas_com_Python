@@ -1,3 +1,4 @@
+
 contador = 0
 
 
@@ -21,15 +22,16 @@ def validar_entrada_inteira():
     return entrada
 
 
-if __name__ == "__main__":
-    print(incrementar_id_bike())
-    print(incrementar_id_bike())
-    print(incrementar_id_bike())
-    print(incrementar_id_bike())
-    print(incrementar_id_bike())
-    validar_entrada_inteira()
+def validar_entrada_ponto_flutuante():
+    continua_leitura = True
+    entrada = 0.0
+    while continua_leitura:
+        try:
+            entrada = float(input('---> '))
+            continua_leitura = False
+        except ValueError:
+            print('ENTRADA COM VALOR INVÁLIDO. TENTE NOVAMENTE')
+            print('INFORME SUA ESCOLHA')
 
-
-
-
+    return entrada
 

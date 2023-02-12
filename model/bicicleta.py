@@ -11,15 +11,9 @@ class Bicicleta:
         self.nome_da_loja = nome_da_loja
 
     def mostrar_bike(self):
-        print()
-        print(f'Id da bike: {self.id_bike}')
-        print(f'Modelo da bike: {self.modelo}')
-        print(f'Cor da bike: {self.cor}')
-        print(f'Nome do comprador: {self.nome_do_comprador}')
-        print(f'Data da compra: {self.data_de_compra}')
-        print(f'Nome da loja: {self.nome_da_loja}')
 
-
-
-
-
+        return f'----------------------------------------------\n'\
+               f'Id da bike: {self.id_bike}\nModelo da bike: {self.modelo}\n'\
+               f'Cor da bike: {self.cor}\nNome do comprador: '\
+               f'{self.nome_do_comprador}\nData da compra: '\
+               f'{self.data_de_compra}\nNome da loja: {self.nome_da_loja}'
