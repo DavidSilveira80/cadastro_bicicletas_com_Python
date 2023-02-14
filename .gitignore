@@ -6,7 +6,7 @@ bin/
 pyvenv.cfg
 # C extensions
 *.so
-
+.idea/
 # Distribution / packaging
 .Python
 build/

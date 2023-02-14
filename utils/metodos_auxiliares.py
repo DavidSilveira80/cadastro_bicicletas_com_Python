@@ -1,5 +1,5 @@
-from model.bicicleta import Bicicleta
-from utils.utils import validar_entrada_ponto_flutuante, incrementar_id_bike, validar_entrada_inteira
+from model.classes import Bicicleta
+from utilidades import validar_entrada_ponto_flutuante, incrementar_id_bike, validar_entrada_inteira
 
 bikes = list()
 

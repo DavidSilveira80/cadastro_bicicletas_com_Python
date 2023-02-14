@@ -1,6 +1,6 @@
 from menus.menus import mostrar_menu_principal
 from utils.metodos_auxiliares import cadastrar, listar_bikes, listar_bike_por_id
-from utils.utils import validar_entrada_inteira
+from utils.utilidades import validar_entrada_inteira
 
 loop = 0
 while loop == 0:
