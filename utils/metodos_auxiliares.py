@@ -47,3 +47,32 @@ def listar_bike_por_id():
 
     return retorno
 
+
+def atualizar_bike():
+    retorno = ''
+    if len(bikes) == 0:
+      retorno = 'NÃO HÁ BIKES CADASTRADAS.'
+    else:
+        print('INFORME O ID DA BIKE: ')
+        id1 = validar_entrada_inteira()
+        for bike in bikes:
+           if bike.id_bike == id1:
+               print('INFORME MODELO')
+               bike.modelo = input('----> ')
+               print('INFORME A COR')
+               bike.cor = input('----> ')
+               print('INFORME VALOR')
+               bike.valor = validar_entrada_ponto_flutuante()
+               print('INFORME NOME DO COMPRADOR')
+               bike.nome_do_comprador = input('----> ')
+               print('INFORME DATA DA COMPRA')
+               bike.data_da_compra = input('----> ')
+               print('INFORME NOME DA LOJA')
+               bike.nome_da_loja = input('----> ')
+               retorno = 'BIKE ATUALIZADA COM SUCESSO'
+           elif bike.id_bike != id1:
+               retorno = 'BIKE NÃO CADASTRADA.'
+    return retorno
+
+
+

@@ -1,5 +1,5 @@
 from menus.menus import mostrar_menu_principal
-from utils.metodos_auxiliares import cadastrar, listar_bikes, listar_bike_por_id
+from utils.metodos_auxiliares import cadastrar, listar_bikes, listar_bike_por_id, atualizar_bike
 from utils.utilidades import validar_entrada_inteira
 
 loop = 0
@@ -25,6 +25,7 @@ while loop == 0:
 
         elif option == 4:
             print('ATUALIZAR UMA BIKE')
+            print(atualizar_bike())
 
         elif option == 5:
             print('DELETAR UMA BIKE')
