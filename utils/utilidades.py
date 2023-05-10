@@ -1,4 +1,3 @@
-
 contador = 0
 
 
@@ -34,4 +33,3 @@ def validar_entrada_ponto_flutuante():
             print('INFORME SUA ESCOLHA')
 
     return entrada
-

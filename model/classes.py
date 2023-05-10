@@ -10,6 +10,24 @@ class Bicicleta:
         self.data_de_compra = data_de_compra
         self.nome_da_loja = nome_da_loja
 
+    def set_modelo(self, modelo):
+        self.modelo = modelo
+
+    def set_cor(self, cor):
+        self.cor = cor
+
+    def set_valor(self, valor):
+        self.valor = valor
+
+    def set_nome_do_comprador(self, nome):
+        self.nome_do_comprador = nome
+
+    def set_data_de_compra(self, data_compra):
+        self.data_de_compra = data_compra
+
+    def set_nome_da_loja(self, nome_loja):
+        self.nome_da_loja = nome_loja
+
     def mostrar_bike(self):
 
         return f'----------------------------------------------\n'\

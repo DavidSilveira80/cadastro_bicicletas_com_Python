@@ -1,93 +1,76 @@
 from model.classes import Bicicleta
-from utils.utilidades import validar_entrada_ponto_flutuante, incrementar_id_bike, validar_entrada_inteira
+from utils.utilidades import incrementar_id_bike
 
 bikes = list()
 
 
-def cadastrar():
-    print('INFORME O MODELO DA BIKE: ')
-    modelo = input('---> ')
-    print('INFORME A COR DA BIKE: ')
-    cor = input('---> ')
-    print('INFORME O VALOR DA BIKE: R$')
-    valor = validar_entrada_ponto_flutuante()
-    print('INFORME O NOME DO COMPRADOR: ')
-    nome_comprador = input('---> ')
-    print('INFORME A DATA DE COMPRA DA BIKE: ')
-    data = input('---> ')
-    print('INFORME O NOME DA LOJA: ')
-    nome_da_loja = input('---> ')
-
-    bike = Bicicleta(incrementar_id_bike(), modelo, cor, valor,
-                     nome_comprador, data, nome_da_loja)
-    bikes.append(bike)
+def cadastrar(modelo, cor, valor, nome_comprador, data_compra, nome_da_loja):
+    bikes.append(Bicicleta(incrementar_id_bike(), modelo, cor, valor,  nome_comprador, data_compra, nome_da_loja))
 
 
-def encontrar_bike(id):
-    for bike in bikes:
-        if bike.id_bike == id:
-            retorno = bike
+def encontrar_bike(id_bike):
+    retorno = ''
+    for bicicleta in bikes:
+        if bicicleta.id_bike == id_bike:
+            retorno = bicicleta
             break
+        else:
+            retorno = None
+    return retorno
+
+
+def listando():
+    for bicicleta in bikes:
+        print(bicicleta.mostrar_bike())
+
+
+def listar_bikes():
+    if len(bikes) == 0:
+        retorno = 'NÃO BIKES CADASTRADAS'
+    else:
+        listando()
+        retorno = 'LISTADOS'
+    return retorno
+
+
+def listar_bike_por_id(id_bike):
+    if len(bikes) == 0:
+        saida = 'NÃO HÁ BIKES CADASTRADAS'
+    else:
+        bicicleta = encontrar_bike(id_bike)
+        if type(bicicleta) == Bicicleta:
+            saida = bicicleta
+        else:
+            saida = bicicleta
+    return saida
+
+
+def atualizar_bike(id_bike, modelo, cor, valor, comprador, data_compra, nome_loja):
+    retorno = ''
+    if len(bikes) == 0:
+        retorno = 'NÃO HÁ BIKES CADASTRADAS.'
+    else:
+        bicicleta = encontrar_bike(id_bike)
+        if type(bicicleta) == Bicicleta:
+            bicicleta.set_modelo(modelo)
+            bicicleta.set_cor(cor)
+            bicicleta.set_valor(valor)
+            bicicleta.set_nome_do_comprador(comprador)
+            bicicleta.set_data_de_compra(data_compra)
+            bicicleta.set_nome_da_loja(nome_loja)
         else:
             retorno = 'BIKE NÃO CADASTRADA.'
     return retorno
 
 
-def listar_bikes():
-    if len(bikes) == 0:
-        print('NÃO BIKES CADASTRADAS')
-    else:
-        for bike in bikes:
-            print(bike.mostrar_bike())
-
-
-def listar_bike_por_id():
+def deletar_bike(id_bike):
     if len(bikes) == 0:
         retorno = 'NÃO HÁ BIKES CADASTRADAS'
     else:
-        print('INFORME O ID DA BIKE: ')
-        id1 = validar_entrada_inteira()
-        retorno = encontrar_bike(id1)
-        if type(retorno) == Bicicleta:
-            retorno = retorno.mostrar_bike()
-    return retorno
-
-
-def atualizar_bike():
-    if len(bikes) == 0:
-      retorno = 'NÃO HÁ BIKES CADASTRADAS.'
-    else:
-        print('INFORME O ID DA BIKE: ')
-        id1 = validar_entrada_inteira()
-        retorno = encontrar_bike(id1)
-        if type(retorno) == Bicicleta:
-               print('INFORME MODELO')
-               retorno.modelo = input('----> ')
-               print('INFORME A COR')
-               retorno.cor = input('----> ')
-               print('INFORME VALOR')
-               retorno.valor = validar_entrada_ponto_flutuante()
-               print('INFORME NOME DO COMPRADOR')
-               retorno.nome_do_comprador = input('----> ')
-               print('INFORME DATA DA COMPRA')
-               retorno.data_da_compra = input('----> ')
-               print('INFORME NOME DA LOJA')
-               retorno.nome_da_loja = input('----> ')
-               print('BIKE ATUALIZADA COM SUCESSO')
+        bicicleta = encontrar_bike(id_bike)
+        if type(bicicleta) == Bicicleta:
+            bikes.remove(bicicleta)
+            retorno = 'BIKE REMOVIDA COM SUCESSO'
         else:
-          retorno = retorno
+            retorno = 'BIKE NÃO CADASTRADA'
     return retorno
-
-
-def deletar_bike():
-    if len(bikes) == 0:
-        print('NÃO HÁ BIKES CADASTRADAS')
-    else:
-        print('INFORME O ID DA BIKE: ')
-        id1 = validar_entrada_inteira()
-        retorno = encontrar_bike(id1)
-        if type(retorno) == Bicicleta:
-            bikes.remove(retorno)
-            print('BIKE REMOVIDA COM SUCESSO')
-        else:
-            print('BIKE NÃO CADASTRADA')
