@@ -1,5 +1,5 @@
 from menus.menus import mostrar_menu_principal
-from utils.metodos_auxiliares import cadastrar, listar_bikes, listar_bike_por_id, atualizar_bike, deletar_bike
+from utils.metodos_crud import cadastrar, listar_bikes, listar_bike_por_id, atualizar_bike, deletar_bike
 from utils.utilidades import validar_entrada_inteira
 
 loop = 0
